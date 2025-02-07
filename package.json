@@ -2,8 +2,9 @@
   "name": "caal-vscode-ext",
   "displayName": "CAAL VSCode Extension",
   "description": "Play a sound and display a notification when a file appears in a configured directory.",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "publisher": "tal-raveh-1",
+  "icon": "assets/ducky.png",
   "engines": {
     "vscode": "^1.97.0"
   },
