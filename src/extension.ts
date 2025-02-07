@@ -14,21 +14,17 @@ export function activate(context: vscode.ExtensionContext) {
     const config = vscode.workspace.getConfiguration();
     const workspace = vscode.workspace.workspaceFolders?.[0].uri.fsPath as string;
 
-    !workspace && vscode.window.showErrorMessage('No workspace found');
+    if (!workspace) { return vscode.window.showErrorMessage('No workspace found'); }
 
     var watch = join(workspace, config.get('watchDir'));
-    var sound = join(workspace, config.get('soundFile'));
+    var sound = context.asAbsolutePath('assets/alert.mp3');
     
-    vscode.workspace.onDidChangeConfiguration((e) => {
-        if (e.affectsConfiguration('caal-course.watchDir') || e.affectsConfiguration('caal-course.soundFile')) {
-            watch = join(workspace, config.get('watchDir'));
-            sound = join(workspace, config.get('soundFile'));
-        }
-    });
+    vscode.workspace.onDidChangeConfiguration((e: vscode.ConfigurationChangeEvent) =>
+            watch = join(workspace, config.get('watchDir')));
 
     const watcher = chokidar.watch(watch, { ignored: /^\./, persistent: true });
 
-    watcher.on('add', (alert) => {
+    watcher.on('add', (alert: string) => {
         if (fs.existsSync(alert)) {
             fs.readFile(alert, 'utf-8', (err, data) => {
                 if (err) { return vscode.window.showErrorMessage(`Error reading ${alert}`); }

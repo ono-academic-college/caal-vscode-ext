@@ -1,6 +1,6 @@
 {
-  "name": "caal-course",
-  "displayName": "Audio Notifier",
+  "name": "caal-vscode-ext",
+  "displayName": "CAAL VSCode Extension",
   "description": "Play a sound and display a notification when a file appears in a configured directory.",
   "version": "0.0.1",
   "engines": {
@@ -18,15 +18,10 @@
     "configuration": {
       "type": "object",
       "properties": {
-        "caal-course.watchDir": {
+        "caal-vscode-ext.watchDir": {
           "order": 1,
           "type": "string",
           "default": "alerts"
-        },
-        "caal-course.soundFile": {
-          "order": 2,
-          "type": "string",
-          "default": "alert.mp3"
         }
       }
     }
@@ -50,7 +45,7 @@
     "@types/node": "20.x",
     "@types/node-notifier": "^8.0.5",
     "@types/play-sound": "^1.1.2",
-    "@types/vscode": "^1.96.0",
+    "@types/vscode": "^1.97.0",
     "@typescript-eslint/eslint-plugin": "^8.22.0",
     "@typescript-eslint/parser": "^8.22.0",
     "@vscode/test-cli": "^0.0.10",
