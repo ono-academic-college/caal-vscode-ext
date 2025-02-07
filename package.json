@@ -4,7 +4,7 @@
   "description": "Play a sound and display a notification when a file appears in a configured directory.",
   "version": "0.0.1",
   "engines": {
-    "vscode": "^1.96.0"
+    "vscode": "^1.97.0"
   },
   "categories": [
     "Other"
